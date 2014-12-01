@@ -1,0 +1,47 @@
+﻿@using System.Web.UI.WebControls
+@using University.DataAccess
+@model University.DataAccess.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Id
+        </dt>
+
+        <dd>
+            @ViewBag.Id
+        </dd>
+
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @ViewBag.Name
+        </dd>
+
+        <dt>
+            Department
+        </dt>
+
+        <dd>
+            @foreach (var dept in (List<Department>)ViewBag.Department)
+            {
+                @dept.Name
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = ViewBag.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

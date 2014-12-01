@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce190aeb6ddc473ca5e10603048ae5f8" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="UniversityDBModel.Course" Width="1.5" PointX="4.125" PointY="5.125" />
+        <EntityTypeShape EntityType="UniversityDBModel.Department" Width="1.5" PointX="1.875" PointY="1.25" />
+        <EntityTypeShape EntityType="UniversityDBModel.Devision" Width="1.5" PointX="6.875" PointY="5.125" />
+        <EntityTypeShape EntityType="UniversityDBModel.District" Width="1.5" PointX="9.125" PointY="4.875" />
+        <EntityTypeShape EntityType="UniversityDBModel.Enrollment" Width="1.5" PointX="6.375" PointY="0.875" />
+        <EntityTypeShape EntityType="UniversityDBModel.Student" Width="1.5" PointX="4.125" PointY="1" />
+        <EntityTypeShape EntityType="UniversityDBModel.Thana" Width="1.5" PointX="11.375" PointY="5" />
+        <AssociationConnector Association="UniversityDBModel.FK_Enrollment_Course" />
+        <AssociationConnector Association="UniversityDBModel.FK_Student_Department" />
+        <AssociationConnector Association="UniversityDBModel.FK_District_Devision" />
+        <AssociationConnector Association="UniversityDBModel.FK_Thana_District" />
+        <AssociationConnector Association="UniversityDBModel.FK_Enrollment_Student" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,45 @@
+﻿@using University.DataAccess
+@model University.DataAccess.Department
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in (List<Department>)ViewBag.Details)
+        {
+            <dt>
+                Id
+            </dt>
+            <dd>
+                @item.Id
+            </dd>
+
+            <dt>
+                Name
+            </dt>
+
+            <dd>
+                @item.Name
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @foreach (var item in (List<Department>) ViewBag.Details)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+    }
+
+    |
+    
+    @*<button class="btn" type="button" value="@item.Id" >Edit</button>*@ 
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
