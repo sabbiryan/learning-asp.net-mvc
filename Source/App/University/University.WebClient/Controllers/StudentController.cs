@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
 using University.DataAccess;
 using University.Manager;
 
@@ -31,11 +32,11 @@ namespace University.WebClient.Controllers
             DevisionManager devisionManager = new DevisionManager();
             ViewBag.Devisions = devisionManager.GetAll();
 
-            DistrictManager districtManager = new DistrictManager();
-            ViewBag.Districts = districtManager.GetAll();
+            //DistrictManager districtManager = new DistrictManager();
+            //ViewBag.Districts = districtManager.GetAll();
 
-            ThanaManager thanaManager = new ThanaManager();
-            ViewBag.Thanas = thanaManager.GetAll();
+            //ThanaManager thanaManager = new ThanaManager();
+            //ViewBag.Thanas = thanaManager.GetAll();
 
 
             return View();
@@ -44,9 +45,25 @@ namespace University.WebClient.Controllers
         [HttpPost]
         public ActionResult Create(Student student)
         {
-            studentManager.Save(student);
+            if (ModelState.IsValid)
+            {
+                studentManager.Save(student);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            string errorMessage = "";
+            foreach (var error in ModelState.Values)
+            {
+                foreach (ModelError modelError in error.Errors)
+                {
+                    errorMessage += modelError.ErrorMessage + "\t";
+                }
+            }
+            ViewBag.ErrorMessage = errorMessage;
+
+            ViewBag.Departments = new DepartmentManager().GetAll();
+            return View(student);
         }
 
 
@@ -127,13 +144,23 @@ namespace University.WebClient.Controllers
 
 
         [HttpGet]
-        public string Test()
+        public string Test(string p)
         {
-            return DateTime.Now.ToString();
+            //return "Parameter: " + p + " Date: " + DateTime.Now.ToString();
+
+            DistrictManager districtManager = new DistrictManager();
+            List<District> districts = districtManager.GetAllByDivision(Convert.ToInt16(p));
+
+            string districsJson = JsonConvert.SerializeObject(districts);
+            return districsJson;
         }
 
 
-        
+        [HttpGet]
+        public string Test2(string p1, string p2)
+        {
+            return p1 + p2;
+        }
 
 
 

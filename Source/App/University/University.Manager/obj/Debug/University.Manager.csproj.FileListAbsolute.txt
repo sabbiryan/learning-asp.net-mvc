@@ -10,3 +10,15 @@ D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.Manager\bin\D
 D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.Manager\bin\Debug\University.DataAccess.pdb
 D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.Manager\bin\Debug\EntityFramework.xml
 D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.Manager\bin\Debug\EntityFramework.SqlServer.xml
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\University.Manager.dll.config
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\University.Manager.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\University.Manager.pdb
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\EntityFramework.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\EntityFramework.SqlServer.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\University.DataAccess.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\University.DataAccess.pdb
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\EntityFramework.xml
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\bin\Debug\EntityFramework.SqlServer.xml
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\obj\Debug\University.Manager.csprojResolveAssemblyReference.cache
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\obj\Debug\University.Manager.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.Manager\obj\Debug\University.Manager.pdb

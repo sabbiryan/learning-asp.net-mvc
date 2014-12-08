@@ -9,20 +9,22 @@ namespace University.Manager
 {
     public class DistrictManager
     {
-        public List<District> GetAll()
-        {
-            using (var db = new UniversityDBEntities())
-            {
-                return db.Districts.ToList();
-            }
-        }
-
-        //public List<District> GetDistrictsByDivision(int id)
+        //public List<District> GetAll()
         //{
-        //    using (UniversityDBEntities db = new UniversityDBEntities())
+        //    using (var db = new UniversityDBEntities())
         //    {
-        //        return new List<District>(db.Districts.Where(x => x.Id == id)).ToList();
+        //        return db.Districts.ToList();
         //    }
         //}
+
+        public List<District> GetAllByDivision(int divisionId)
+        {
+            using (UniversityDBEntities db = new UniversityDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.ProxyCreationEnabled = false;
+                return db.Districts.Where(x => x.DivisionId == divisionId).ToList();
+            }
+        }
     }
 }

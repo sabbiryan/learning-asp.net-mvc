@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace University.DataAccess
 {
     using System;
@@ -20,6 +22,8 @@ namespace University.DataAccess
         }
     
         public int Id { get; set; }
+
+        [StringLength(30, ErrorMessage = "Length should not be more the 30 characters")]
         public string Name { get; set; }
         public Nullable<int> DepartmentId { get; set; }
     

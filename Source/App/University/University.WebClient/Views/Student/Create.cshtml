@@ -17,12 +17,15 @@
     //            document.getElementById("date").innerHTML = xmlHttp.responseText;
     //        }
     //    }
-    //    xmlHttp.open("GET", "/Student/Test?", true);
+    //    xmlHttp.open("GET", "/Student/Test?p="+ division.value, true);
     //    xmlHttp.send();
     //}
 
     function loadDistrict(division) {
-        
+        $.get("/Student/Test?p="+ division.value, function(data) {
+            document.getElementById("date").value = data;
+            //alert(data);
+        } );
     }
 
 </script>
@@ -65,6 +68,7 @@
             <label class="control-label col-md-2">Division</label>
             <div class="col-md-10">
                 <select class="form-control" name="DivisionId" id="DivisionId" required="required" onchange="loadDistrict(this)">
+                    <option value="">Select Division</option>
                     @foreach (var item in (List<Devision>)ViewBag.Devisions)
                     {
                         <option value="@item.Id">@item.Name</option>
@@ -79,10 +83,10 @@
             <label class="control-label col-md-2">District</label>
             <div class="col-md-10">
                 <select class="form-control" name="DistrictId" id="DistrictId" required="required">
-                    @foreach (var item in (List<District>)ViewBag.Districts)
+                    @*@foreach (var item in (List<District>)ViewBag.Districts)
                     {
                         <option value="@item.Id">@item.Name</option>
-                    }
+                    }*@
 
                 </select>
             </div>
@@ -92,10 +96,10 @@
             <label class="control-label col-md-2">Thana</label>
             <div class="col-md-10">
                 <select class="form-control" name="ThanaId" id="ThanaId" required="required">
-                    @foreach (var item in (List<Thana>)ViewBag.Thanas)
+                    @*@foreach (var item in (List<Thana>)ViewBag.Thanas)
                     {
                         <option value="@item.Id">@item.Name</option>
-                    }
+                    }*@
 
                 </select>
             </div>

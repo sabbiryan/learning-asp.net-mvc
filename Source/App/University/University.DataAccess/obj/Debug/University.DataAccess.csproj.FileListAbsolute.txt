@@ -8,3 +8,13 @@ D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.DataAccess\bi
 D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.DataAccess\bin\Debug\EntityFramework.xml
 D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\University\University.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\University.DataAccess.dll.config
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\University.DataAccess.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\University.DataAccess.pdb
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\EntityFramework.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\EntityFramework.xml
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\obj\Debug\University.DataAccess.csprojResolveAssemblyReference.cache
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\obj\Debug\University.DataAccess.dll
+D:\CSE\Repository\DotNet\UIU ASP.Net MVC\MVC\Simple-University-Management-System\Source\App\University\University.DataAccess\obj\Debug\University.DataAccess.pdb
