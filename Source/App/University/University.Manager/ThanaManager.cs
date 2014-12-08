@@ -9,11 +9,21 @@ namespace University.Manager
 {
     public class ThanaManager
     {
-        public List<Thana> GetAll()
+        //public List<Thana> GetAll()
+        //{
+        //    using (var db = new UniversityDBEntities())
+        //    {
+        //        return db.Thanas.ToList();
+        //    }
+        //}
+
+        public List<Thana> GetAllByDistrict(int district)
         {
-            using (var db = new UniversityDBEntities())
+            using (UniversityDBEntities db = new UniversityDBEntities())
             {
-                return db.Thanas.ToList();
+                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.ProxyCreationEnabled = false;
+                return db.Thanas.Where(x => x.DistrictId == district).ToList();
             }
         }
     }

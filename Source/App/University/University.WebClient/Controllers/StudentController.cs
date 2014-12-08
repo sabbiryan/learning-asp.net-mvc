@@ -144,12 +144,12 @@ namespace University.WebClient.Controllers
 
 
         [HttpGet]
-        public string Test(string p)
+        public string GetAllDistrictByDivision(string division)
         {
             //return "Parameter: " + p + " Date: " + DateTime.Now.ToString();
 
             DistrictManager districtManager = new DistrictManager();
-            List<District> districts = districtManager.GetAllByDivision(Convert.ToInt16(p));
+            List<District> districts = districtManager.GetAllByDivision(Convert.ToInt16(division));
 
             string districsJson = JsonConvert.SerializeObject(districts);
             return districsJson;
@@ -157,9 +157,13 @@ namespace University.WebClient.Controllers
 
 
         [HttpGet]
-        public string Test2(string p1, string p2)
+        public string GetAllThanaByDistrict(string district)
         {
-            return p1 + p2;
+            ThanaManager thanaManager = new ThanaManager();
+            List<Thana> thanas = thanaManager.GetAllByDistrict(Convert.ToInt16(district));
+
+            string thanasJson = JsonConvert.SerializeObject(thanas);
+            return thanasJson;
         }
 
 
