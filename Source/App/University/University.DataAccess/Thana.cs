@@ -14,10 +14,16 @@ namespace University.DataAccess
     
     public partial class Thana
     {
+        public Thana()
+        {
+            this.Students = new HashSet<Student>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public int DistrictId { get; set; }
     
         public virtual District District { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

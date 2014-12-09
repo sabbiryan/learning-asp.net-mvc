@@ -16,6 +16,7 @@ namespace University.DataAccess
     {
         public District()
         {
+            this.Students = new HashSet<Student>();
             this.Thanas = new HashSet<Thana>();
         }
     
@@ -24,6 +25,7 @@ namespace University.DataAccess
         public int DivisionId { get; set; }
     
         public virtual Devision Devision { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<Thana> Thanas { get; set; }
     }
 }

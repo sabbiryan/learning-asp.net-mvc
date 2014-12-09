@@ -5,18 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ce190aeb6ddc473ca5e10603048ae5f8" Name="Diagram1" ZoomLevel="98">
-        <EntityTypeShape EntityType="UniversityDBModel.Course" Width="1.5" PointX="4.125" PointY="5.125" />
-        <EntityTypeShape EntityType="UniversityDBModel.Department" Width="1.5" PointX="1.875" PointY="1.25" />
-        <EntityTypeShape EntityType="UniversityDBModel.Devision" Width="1.5" PointX="6.875" PointY="5.125" />
-        <EntityTypeShape EntityType="UniversityDBModel.District" Width="1.5" PointX="9.125" PointY="4.875" />
-        <EntityTypeShape EntityType="UniversityDBModel.Enrollment" Width="1.5" PointX="6.375" PointY="0.875" />
-        <EntityTypeShape EntityType="UniversityDBModel.Student" Width="1.5" PointX="4.125" PointY="1" />
-        <EntityTypeShape EntityType="UniversityDBModel.Thana" Width="1.5" PointX="11.375" PointY="5" />
+        <EntityTypeShape EntityType="UniversityDBModel.Course" Width="1.5" PointX="7.5" PointY="1" />
+        <EntityTypeShape EntityType="UniversityDBModel.Department" Width="1.5" PointX="5.25" PointY="4.125" />
+        <EntityTypeShape EntityType="UniversityDBModel.Devision" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="UniversityDBModel.District" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="UniversityDBModel.Enrollment" Width="1.5" PointX="9.75" PointY="4.875" />
+        <EntityTypeShape EntityType="UniversityDBModel.Student" Width="1.5" PointX="7.5" PointY="4.375" />
+        <EntityTypeShape EntityType="UniversityDBModel.Thana" Width="1.5" PointX="5.25" PointY="7" />
         <AssociationConnector Association="UniversityDBModel.FK_Enrollment_Course" />
         <AssociationConnector Association="UniversityDBModel.FK_Student_Department" />
         <AssociationConnector Association="UniversityDBModel.FK_District_Devision" />
+        <AssociationConnector Association="UniversityDBModel.FK_Student_Devision" />
+        <AssociationConnector Association="UniversityDBModel.FK_Student_District" />
         <AssociationConnector Association="UniversityDBModel.FK_Thana_District" />
         <AssociationConnector Association="UniversityDBModel.FK_Enrollment_Student" />
+        <AssociationConnector Association="UniversityDBModel.FK_Student_Thana" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

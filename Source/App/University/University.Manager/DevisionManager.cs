@@ -15,6 +15,14 @@ namespace University.Manager
             {
                 return db.Devisions.ToList();
             }
-        } 
+        }
+
+        public Devision GetSingleDivision(int? divisionId)
+        {
+            using (UniversityDBEntities db = new UniversityDBEntities())
+            {
+                return db.Devisions.Find(divisionId);
+            }
+        }
     }
 }

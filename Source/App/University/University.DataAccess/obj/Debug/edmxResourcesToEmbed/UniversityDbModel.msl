@@ -48,6 +48,9 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="UniversityDBModel.Student">
         <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="ThanaId" ColumnName="ThanaId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
           <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />

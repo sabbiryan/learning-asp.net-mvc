@@ -84,6 +84,21 @@ namespace University.WebClient.Controllers
                 ViewBag.Department = dept.Name;
             }
 
+            List<Devision> devisions = new DevisionManager().GetAll();
+            ViewBag.Divisions = devisions;
+
+            Devision devision = new DevisionManager().GetSingleDivision(student.DivisionId);
+            ViewBag.DivisionId = devision.Id;
+            ViewBag.Division = devision.Name;
+
+            District district = new DistrictManager().GetSinlgleDistrict(student.DistrictId);
+            ViewBag.DistrictId = district.Id;
+            ViewBag.District = district.Name;
+
+            Thana thana = new ThanaManager().GetSingleThana(student.ThanaId);
+            ViewBag.ThanaId = thana.Id;
+            ViewBag.Thana = thana.Name;
+
 
             return View();
         }
@@ -108,6 +123,15 @@ namespace University.WebClient.Controllers
             var departmentManager = new DepartmentManager();
             ViewBag.Department = departmentManager.GetSingleRow(ViewBag.DepartmentId);
 
+            Devision devision = new DevisionManager().GetSingleDivision(student.DivisionId);
+            ViewBag.Division = devision.Name;
+
+            District district = new DistrictManager().GetSinlgleDistrict(student.DistrictId);
+            ViewBag.District = district.Name;
+
+            Thana thana = new ThanaManager().GetSingleThana(student.ThanaId);
+            ViewBag.Thana = thana.Name;
+
             return View();
         }
 
@@ -126,7 +150,16 @@ namespace University.WebClient.Controllers
             {
                 ViewBag.Department = department.Name;    
             }
-            
+
+
+            Devision devision = new DevisionManager().GetSingleDivision(student.DivisionId);
+            ViewBag.Division = devision.Name;
+
+            District district = new DistrictManager().GetSinlgleDistrict(student.DistrictId);
+            ViewBag.District = district.Name;
+
+            Thana thana = new ThanaManager().GetSingleThana(student.ThanaId);
+            ViewBag.Thana = thana.Name;
 
 
             return View();
@@ -141,6 +174,8 @@ namespace University.WebClient.Controllers
             return RedirectToAction("Index");
         }
 
+
+        //----------------------------------Ajax CALL Start------------------------------------
 
 
         [HttpGet]

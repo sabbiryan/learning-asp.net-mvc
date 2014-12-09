@@ -51,6 +51,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="DepartmentId" Type="int" />
+          <Property Name="DivisionId" Type="int" />
+          <Property Name="DistrictId" Type="int" />
+          <Property Name="ThanaId" Type="int" />
         </EntityType>
         <EntityType Name="Thana">
           <Key>
@@ -108,6 +111,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_Devision">
+          <End Role="Devision" Type="Self.Devision" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devision">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="DivisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_District">
+          <End Role="District" Type="Self.District" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Thana">
+          <End Role="Thana" Type="Self.Thana" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thana">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ThanaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Thana_District">
           <End Role="District" Type="Self.District" Multiplicity="1" />
           <End Role="Thana" Type="Self.Thana" Multiplicity="*" />
@@ -144,6 +183,18 @@
             <End Role="Department" EntitySet="Department" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <AssociationSet Name="FK_Student_Devision" Association="Self.FK_Student_Devision">
+            <End Role="Devision" EntitySet="Devision" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_District" Association="Self.FK_Student_District">
+            <End Role="District" EntitySet="District" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Thana" Association="Self.FK_Student_Thana">
+            <End Role="Thana" EntitySet="Thana" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
           <AssociationSet Name="FK_Thana_District" Association="Self.FK_Thana_District">
             <End Role="District" EntitySet="District" />
             <End Role="Thana" EntitySet="Thana" />
@@ -173,6 +224,14 @@
             <End Role="Devision" EntitySet="Devisions" />
             <End Role="District" EntitySet="Districts" />
           </AssociationSet>
+          <AssociationSet Name="FK_Student_Devision" Association="UniversityDBModel.FK_Student_Devision">
+            <End Role="Devision" EntitySet="Devisions" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_District" Association="UniversityDBModel.FK_Student_District">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
           <AssociationSet Name="FK_Thana_District" Association="UniversityDBModel.FK_Thana_District">
             <End Role="District" EntitySet="Districts" />
             <End Role="Thana" EntitySet="Thanas" />
@@ -180,6 +239,10 @@
           <AssociationSet Name="FK_Enrollment_Student" Association="UniversityDBModel.FK_Enrollment_Student">
             <End Role="Student" EntitySet="Students" />
             <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Thana" Association="UniversityDBModel.FK_Student_Thana">
+            <End Role="Thana" EntitySet="Thanas" />
+            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Course">
@@ -206,6 +269,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Districts" Relationship="UniversityDBModel.FK_District_Devision" FromRole="Devision" ToRole="District" />
+          <NavigationProperty Name="Students" Relationship="UniversityDBModel.FK_Student_Devision" FromRole="Devision" ToRole="Student" />
         </EntityType>
         <EntityType Name="District">
           <Key>
@@ -215,6 +279,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DivisionId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Devision" Relationship="UniversityDBModel.FK_District_Devision" FromRole="District" ToRole="Devision" />
+          <NavigationProperty Name="Students" Relationship="UniversityDBModel.FK_Student_District" FromRole="District" ToRole="Student" />
           <NavigationProperty Name="Thanas" Relationship="UniversityDBModel.FK_Thana_District" FromRole="District" ToRole="Thana" />
         </EntityType>
         <EntityType Name="Enrollment">
@@ -235,8 +300,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="DivisionId" Type="Int32" />
+          <Property Name="DistrictId" Type="Int32" />
+          <Property Name="ThanaId" Type="Int32" />
           <NavigationProperty Name="Department" Relationship="UniversityDBModel.FK_Student_Department" FromRole="Student" ToRole="Department" />
+          <NavigationProperty Name="Devision" Relationship="UniversityDBModel.FK_Student_Devision" FromRole="Student" ToRole="Devision" />
+          <NavigationProperty Name="District" Relationship="UniversityDBModel.FK_Student_District" FromRole="Student" ToRole="District" />
           <NavigationProperty Name="Enrollments" Relationship="UniversityDBModel.FK_Enrollment_Student" FromRole="Student" ToRole="Enrollment" />
+          <NavigationProperty Name="Thana" Relationship="UniversityDBModel.FK_Student_Thana" FromRole="Student" ToRole="Thana" />
         </EntityType>
         <EntityType Name="Thana">
           <Key>
@@ -246,6 +317,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DistrictId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="District" Relationship="UniversityDBModel.FK_Thana_District" FromRole="Thana" ToRole="District" />
+          <NavigationProperty Name="Students" Relationship="UniversityDBModel.FK_Student_Thana" FromRole="Thana" ToRole="Student" />
         </EntityType>
         <Association Name="FK_Enrollment_Course">
           <End Type="UniversityDBModel.Course" Role="Course" Multiplicity="1" />
@@ -283,6 +355,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_Devision">
+          <End Type="UniversityDBModel.Devision" Role="Devision" Multiplicity="0..1" />
+          <End Type="UniversityDBModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devision">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="DivisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_District">
+          <End Type="UniversityDBModel.District" Role="District" Multiplicity="0..1" />
+          <End Type="UniversityDBModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Thana_District">
           <End Type="UniversityDBModel.District" Role="District" Multiplicity="1" />
           <End Type="UniversityDBModel.Thana" Role="Thana" Multiplicity="*" />
@@ -304,6 +400,18 @@
             </Principal>
             <Dependent Role="Enrollment">
               <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Thana">
+          <End Type="UniversityDBModel.Thana" Role="Thana" Multiplicity="0..1" />
+          <End Type="UniversityDBModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thana">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ThanaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -360,6 +468,9 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="UniversityDBModel.Student">
               <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ThanaId" ColumnName="ThanaId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

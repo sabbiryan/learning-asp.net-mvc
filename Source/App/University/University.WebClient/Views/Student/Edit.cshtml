@@ -8,6 +8,61 @@
 
 <h2>Edit</h2>
 
+<script type="text/javascript">
+    //function loadDistrict(division) {
+    //    console.log(division);
+    //    var xmlHttp = new XMLHttpRequest();
+    //    xmlHttp.onreadystatechange = function() {
+    //        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+    //            console.log(xmlHttp.responseText);
+    //            document.getElementById("date").innerHTML = xmlHttp.responseText;
+    //        }
+    //    }
+    //    xmlHttp.open("GET", "/Student/Test?p="+ division.value, true);
+    //    xmlHttp.send();
+    //}
+
+    function loadDistrict(division) {
+        //alert(division);
+
+        $.get("/Student/GetAllDistrictByDivision?division=" + division.value, function (data) {
+            //document.getElementById("date").innerText = data;
+
+            var info = JSON.parse(data);
+            var districtOutput = "<option value=''>Select District</option>";
+            for (var i = 0; i <= info.length - 1; i++) {
+                //for (key in info[i]) {
+                districtOutput += '<option value=' + info[i].Id + ' >' + info[i].Name + '</option>';
+                //}
+            }
+
+            document.getElementById("DistrictId").innerHTML = districtOutput;
+        });
+    }
+
+
+
+    function loadThana(district) {
+        //alert(district);
+
+        $.get("/Student/GetAllThanaByDistrict?district=" + district.value, function (data) {
+            //document.getElementById("date").innerText = data;
+            //alert(data);
+
+            var info = JSON.parse(data);
+            var thanaOutput = "<option value=''>Select Thana</option>";
+            for (var i = 0; i <= info.length - 1; i++) {
+                //for (key in info[i]) {
+                thanaOutput += '<option value=' + info[i].Id + ' >' + info[i].Name + '</option>';
+                //}
+            }
+
+            document.getElementById("ThanaId").innerHTML = thanaOutput;
+        });
+    }
+
+</script>
+
 
 @using (Html.BeginForm())
 {
@@ -37,6 +92,44 @@
                     {
                         <option value="@item.Id">@item.Name</option>
                     }
+
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">Division</label>
+            <div class="col-md-10">
+                <select class="form-control" name="DivisionId" id="DivisionId" required="required" onchange="loadDistrict(this)">
+                    <option value="">Select Division</option>
+                    <option value="@ViewBag.DivisionId" selected="selected">@ViewBag.Division</option>
+                    @foreach (var item in (List<Devision>)ViewBag.Divisions)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">District</label>
+            <div class="col-md-10">
+                <select class="form-control" name="DistrictId" id="DistrictId" required="required" onchange="loadThana(this)">
+                    
+                    <option value="@ViewBag.DistrictId" selected="selected">@ViewBag.District</option>                    
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Thana</label>
+            <div class="col-md-10">
+                <select class="form-control" name="ThanaId" id="ThanaId" required="required">
+
+                    <option value="@ViewBag.ThanaId" selected="selected">@ViewBag.Thana</option>
 
                 </select>
             </div>

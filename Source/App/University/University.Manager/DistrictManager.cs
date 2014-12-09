@@ -26,5 +26,13 @@ namespace University.Manager
                 return db.Districts.Where(x => x.DivisionId == divisionId).ToList();
             }
         }
+
+        public District GetSinlgleDistrict(int? districtId)
+        {
+            using (UniversityDBEntities db = new UniversityDBEntities())
+            {
+                return db.Districts.Find(districtId);
+            }
+        }
     }
 }

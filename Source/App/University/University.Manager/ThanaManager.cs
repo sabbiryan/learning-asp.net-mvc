@@ -26,5 +26,13 @@ namespace University.Manager
                 return db.Thanas.Where(x => x.DistrictId == district).ToList();
             }
         }
+
+        public Thana GetSingleThana(int? thanaId)
+        {
+            using (UniversityDBEntities db = new UniversityDBEntities())
+            {
+                return db.Thanas.Single(thana => thana.Id == thanaId);
+            }
+        }
     }
 }

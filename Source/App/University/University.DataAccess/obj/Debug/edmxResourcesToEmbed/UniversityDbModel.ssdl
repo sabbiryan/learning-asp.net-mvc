@@ -46,6 +46,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="DepartmentId" Type="int" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="ThanaId" Type="int" />
   </EntityType>
   <EntityType Name="Thana">
     <Key>
@@ -103,6 +106,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Student_Devision">
+    <End Role="Devision" Type="Self.Devision" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Devision">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Thana">
+    <End Role="Thana" Type="Self.Thana" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thana">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="ThanaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Thana_District">
     <End Role="District" Type="Self.District" Multiplicity="1" />
     <End Role="Thana" Type="Self.Thana" Multiplicity="*" />
@@ -137,6 +176,18 @@
     </AssociationSet>
     <AssociationSet Name="FK_Student_Department" Association="Self.FK_Student_Department">
       <End Role="Department" EntitySet="Department" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Devision" Association="Self.FK_Student_Devision">
+      <End Role="Devision" EntitySet="Devision" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_District" Association="Self.FK_Student_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Thana" Association="Self.FK_Student_Thana">
+      <End Role="Thana" EntitySet="Thana" />
       <End Role="Student" EntitySet="Student" />
     </AssociationSet>
     <AssociationSet Name="FK_Thana_District" Association="Self.FK_Thana_District">

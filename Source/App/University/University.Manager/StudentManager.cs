@@ -15,7 +15,12 @@ namespace University.Manager
         {
             using (var db = new UniversityDBEntities())
             {
-                return db.Students.Include(dept => dept.Department).ToList();
+                return db.Students.
+                    Include(dept => dept.Department).
+                    Include(div =>div.Devision).
+                    Include(dist => dist.District).
+                    Include(thana => thana.Thana).
+                    ToList();
             }
         }
 
