@@ -1,4 +1,4 @@
-# Simple University System using Asp.Net MVC
+### Asp.Net MVC University CRUD App
 
 Clone this repositoy
 
